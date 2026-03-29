@@ -24,7 +24,7 @@
         <!-- Logo -->
         <div class="mb-6">
             <a href="/" class="flex items-center gap-4 flex-col">
-                <img src="{{ asset('public/assets/img/icon.png') }}" class="h-20 me-3" alt="CampaignOS Logo" />
+                <img src="{{ asset('assets/img/icon.png') }}" class="h-20 me-3" alt="CampaignOS Logo" />
                 <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">CampaignOS</span>
             </a>
         </div>

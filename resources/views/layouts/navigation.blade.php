@@ -14,7 +14,7 @@
                     </svg>
                 </button>
                 <a href="{{ $isSuperAdmin ? route('super-admin.dashboard') : route('dashboard') }}" class="flex items-center ms-2 md:me-24">
-                    <img src="{{ asset('public/assets/img/icon.png') }}" class="h-6 me-3" alt="CampaignOS Logo" />
+                    <img src="{{ asset('assets/img/icon.png') }}" class="h-6 me-3" alt="CampaignOS Logo" />
                     <span class="self-center text-xl font-semibold whitespace-nowrap text-primary-600 dark:text-primary-400">CampaignOS</span>
                 </a>
             </div>

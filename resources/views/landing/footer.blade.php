@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
             <!-- Logo & description -->
             <div>
-                <img src="{{ asset('public/assets/img/icon.png') }}" class="h-10 mb-3" alt="CampaignOS Logo" />
+                <img src="{{ asset('assets/img/icon.png') }}" class="h-10 mb-3" alt="CampaignOS Logo" />
                 <h3 class="text-xl font-bold gradient-text">CampaignOS</h3>
                 <p class="mt-2 text-gray-400">The Operating System for Advertising Campaigns</p>
             </div>
