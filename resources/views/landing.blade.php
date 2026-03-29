@@ -1,6 +1,6 @@
 @extends('landing.app')
 
-@section('title','The Operating System for Advertising Campaigns')
+@section('title', 'The Operating System for Advertising Campaigns')
 
 @section('content')
     {{-- Hero Section --}}
@@ -38,8 +38,8 @@
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 shadow-2xl">
-                    <img src="https://placehold.co/600x400/667eea/ffffff?text=Dashboard+Preview"
-                        alt="CampaignOS Dashboard" class="rounded-lg">
+                    <img src="https://placehold.co/600x400/667eea/ffffff?text=Dashboard+Preview" alt="CampaignOS Dashboard"
+                        class="rounded-lg">
                 </div>
             </div>
         </div>
@@ -330,8 +330,8 @@
                 </a>
                 <a href="#"
                     class="w-full sm:w-auto rounded-lg bg-dark dark:bg-light hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-neutral-quaternary text-white dark:text-black rounded-base inline-flex items-center justify-center px-4 py-3">
-                    <svg class="me-2 w-7 h-7" aria-hidden="true" focusable="false" data-prefix="fab"
-                        data-icon="google-play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <svg class="me-2 w-7 h-7" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google-play"
+                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path fill="currentColor"
                             d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z">
                         </path>
@@ -360,8 +360,7 @@
                     <div
                         class="bg-gray-50 dark:bg-gray-800 dark:text-white rounded-lg shadow-md p-6 text-center border-2 transform {{ $plan->is_popular ? 'border-blue-500 md:scale-105' : 'border-blue-500 scale-95 md:scale-100' }}">
                         @if ($plan->is_popular)
-                            <div
-                                class="bg-gradient text-white text-xs font-bold px-2 py-1 rounded-full inline-block -mt-8 mb-2">
+                            <div class="bg-gradient text-white text-xs font-bold px-2 py-1 rounded-full inline-block -mt-8 mb-2">
                                 Most Popular
                             </div>
                         @endif
@@ -371,8 +370,15 @@
                                 {{ $plan->billing_cycle === 'monthly' ? 'Monthly' : 'Yearly' }} billing
                             </p>
                         </div>
-                        <div class="mt-4 text-4xl font-bold">${{ number_format($plan->price, 2) }}<span
-                                class="text-lg font-normal">/{{ $plan->billing_cycle === 'monthly' ? 'month' : 'year' }}</span>
+                        <div class="mt-4 text-4xl font-bold">
+                            @if($plan->price == 0)
+                                <span class="text-2xl">Contact Us</span>
+                            @else
+                                ${{ number_format($plan->price, 2) }}
+                                <span class="text-lg font-normal">
+                                    /{{ $plan->billing_cycle === 'monthly' ? 'month' : 'year' }}
+                                </span>
+                            @endif
                         </div>
                         <!-- Plan Details -->
                         <div class="p-5 space-y-3">
@@ -410,9 +416,11 @@
                                 </div>
                             @endif
                         </div>
-                        <a href="#"
-                            class="mt-6 inline-block w-full px-5 py-3 text-sm font-medium {{ $plan->is_popular ? 'bg-gradient text-white ' : 'border-2 text-blue-500' }} border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 rounded-lg transition-all ease-linear">
-                            Get Started
+                        <a href="{{ $plan->price == 0 ? route('pages.contact') : '#' }}"
+                            class="mt-6 inline-block w-full px-5 py-3 text-sm font-medium
+                                            {{ $plan->is_popular ? 'bg-gradient text-white' : 'border-2 text-blue-500' }}
+                                            border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 rounded-lg transition-all ease-linear">
+                            {{ $plan->price == 0 ? 'Contact Us' : 'Get Started' }}
                         </a>
                     </div>
                 @empty
