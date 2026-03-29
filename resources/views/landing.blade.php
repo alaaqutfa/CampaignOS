@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <div class="bg-gray-100 rounded-xl p-4 shadow-2xl">
+                <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 shadow-2xl">
                     <img src="https://placehold.co/600x400/667eea/ffffff?text=Dashboard+Preview"
                         alt="CampaignOS Dashboard" class="rounded-lg">
                 </div>

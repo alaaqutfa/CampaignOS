@@ -86,9 +86,9 @@ class CampaignItemController extends Controller
         $this->authorize('update', $item);
 
         // لا يمكن تعديل القياس بعد التركيب أو الرفض
-        if (! in_array($item->status, ['pending', 'designed', 'printed'])) {
-            return redirect()->back()->with('error', 'Cannot edit measurement after installation or rejection.');
-        }
+        // if (! in_array($item->status, ['pending', 'designed', 'printed'])) {
+        //     return redirect()->back()->with('error', 'Cannot edit measurement after installation or rejection.');
+        // }
 
         $validated = $request->validate([
             'shop_id'               => 'required|exists:shops,id',

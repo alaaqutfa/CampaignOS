@@ -42,7 +42,7 @@ class DemoUserSeeder extends Seeder
                 'is_super_admin' => false,
             ]
         );
-        $measurer->assignRole('measurer');
+        $measurer->assignRole(['measurer', 'installer']);
 
         // مستخدم مقاول تركيب (installer)
         $installer = User::firstOrCreate(
@@ -54,6 +54,6 @@ class DemoUserSeeder extends Seeder
                 'is_super_admin' => false,
             ]
         );
-        $installer->assignRole('installer');
+        $installer->assignRole(['measurer', 'installer']);
     }
 }

@@ -75,10 +75,16 @@
             <div class="px-6 py-4 border-b border-default flex justify-between items-center">
                 <h2 class="text-lg font-semibold text-heading dark:text-white">Measurements
                     ({{ $campaign->items->count() }})</h2>
-                <a href="{{ route('items.create', $campaign) }}"
-                    class="px-3 py-1 text-sm text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300">
-                    + Add Measurement
-                </a>
+                    <div class="flex gap-2">
+                        <a href="{{ route('items.create', $campaign) }}"
+                            class="px-3 py-1 text-sm text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300">
+                            + Add Measurement
+                        </a>
+                        <a href="{{ route('contractor-assignments.index') }}"
+                            class="px-3 py-1 text-sm text-primary-600 hover:text-primary-800 dark:text-primary-400 dark:hover:text-primary-300">
+                            + Contractor Assignments
+                        </a>
+                    </div>
             </div>
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-default">

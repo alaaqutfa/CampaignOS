@@ -57,17 +57,47 @@
 
                 <!-- Role -->
                 <div class="mb-6">
-                    <label for="role" class="block text-sm font-medium text-heading dark:text-white mb-1">Role <span
-                            class="text-red-500">*</span></label>
-                    <select name="role" id="role" required
-                        class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent @error('role') border-red-500 @enderror">
-                        @foreach($roles as $role)
-                            <option value="{{ $role }}" {{ $user->hasRole($role) ? 'selected' : '' }}>
-                                {{ ucfirst(str_replace('_', ' ', $role)) }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('role')
+                    <label class="block text-sm font-medium text-heading dark:text-white mb-3">
+                        Role <span class="text-red-500">*</span>
+                    </label>
+
+                    @php
+                        $selectedRoles = old('roles', $userRoles ?? []);
+                    @endphp
+
+                    @foreach ([
+                        'management' => 'Management',
+                        'design' => 'Design',
+                        'field' => 'Field Staff'
+                    ] as $groupKey => $groupLabel)
+
+                        <div class="mb-4">
+                            <p class="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                                {{ $groupLabel }}
+                            </p>
+
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                @foreach($roles->where('group', $groupKey) as $role)
+                                    <label class="flex items-center gap-2 p-2 rounded-lg border border-default cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800">
+
+                                        <input type="checkbox"
+                                            name="roles[]"
+                                            value="{{ $role['name'] }}"
+                                            class="text-primary-500 focus:ring-primary-500"
+                                            {{ in_array($role['name'], $selectedRoles) ? 'checked' : '' }}>
+
+                                        <span class="text-sm text-heading dark:text-white">
+                                            {{ ucfirst(str_replace('_', ' ', $role['name'])) }}
+                                        </span>
+
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+
+                    @endforeach
+
+                    @error('roles')
                         <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
                 </div>

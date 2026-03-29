@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
+            'auth:sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'superadmin' => \App\Http\Middleware\SuperAdmin::class,
             'set.tenant' => \App\Http\Middleware\SetTenant::class,
             'check.company' => \App\Http\Middleware\CheckCompany::class,

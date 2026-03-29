@@ -5,6 +5,23 @@ use App\Http\Controllers\Api\IssueController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\WorkflowController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ContractorApiController;
+
+Route::prefix('contractor')->group(function () {
+    Route::post('login', [ContractorApiController::class, 'login']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('logout', [ContractorApiController::class, 'logout']);
+        Route::get('me', [ContractorApiController::class, 'me']);
+        Route::get('regions', [ContractorApiController::class, 'regions']);
+        Route::get('regions/{region}/shops', [ContractorApiController::class, 'shops']);
+        Route::post('regions/{region}/shops', [ContractorApiController::class, 'storeShop']);
+        Route::get('measurement-tasks', [ContractorApiController::class, 'measurementTasks']);
+        Route::post('measurement-tasks/{item}', [ContractorApiController::class, 'storeMeasurement']);
+        Route::get('installation-tasks', [ContractorApiController::class, 'installationTasks']);
+        Route::post('installation-tasks/{item}', [ContractorApiController::class, 'storeInstallation']);
+    });
+});
+
 
 Route::middleware('auth')->name('api.')->group(function () {
     Route::apiResource('campaigns.workflows', WorkflowController::class)->shallow();

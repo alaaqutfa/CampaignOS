@@ -15,6 +15,7 @@
 
     <!-- Vite (Tailwind + JS) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('./node_modules/flowbite/dist/flowbite.css') }}">
     @stack('styles')
 </head>
 
@@ -59,7 +60,7 @@
 
     <!-- CampaignOS JS (loaded via Vite or CDN) -->
     @vite('resources/js/app.js')
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2/dist/flowbite.min.js"></script>
+    <script src="{{ asset('./node_modules/flowbite/dist/flowbite.js') }}"></script>
     @stack('scripts')
 </body>
 

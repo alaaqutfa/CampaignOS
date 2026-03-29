@@ -3,6 +3,8 @@
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\CampaignItemController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ContractorAssignmentController;
+use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\MeasurementAssetController;
@@ -18,7 +20,6 @@ use App\Http\Controllers\SuperAdmin\SubscriptionController as SuperAdminSubscrip
 use App\Http\Controllers\SuperAdmin\UserController as SuperAdminUserController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkflowController;
-use App\Http\Controllers\ContractorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'index'])->name('landing.index');
@@ -67,6 +68,9 @@ Route::middleware(['auth', 'set.tenant', 'check.company'])->group(function () {
         });
         Route::resource('workflows', WorkflowController::class)->except(['edit', 'create']);
     });
+    Route::resource('contractor-assignments', ContractorAssignmentController::class)
+        ->parameters(['contractor-assignments' => 'contractor'])
+        ->only(['index', 'edit', 'update']);
     Route::prefix('company')->name('company.')->group(function () {
         Route::get('/subscriptions', [SubscriptionController::class, 'index'])->name('subscriptions.index');
         Route::get('/subscriptions/create', [SubscriptionController::class, 'create'])->name('subscriptions.create');

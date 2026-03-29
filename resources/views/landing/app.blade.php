@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('./node_modules/flowbite/dist/flowbite.css') }}">
     <style>
         * {
             font-family: 'Plus Jakarta Sans'
@@ -51,7 +51,7 @@
         </svg>
     </button>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="{{ asset('./node_modules/flowbite/dist/flowbite.js') }}"></script>
 </body>
 
 </html>
