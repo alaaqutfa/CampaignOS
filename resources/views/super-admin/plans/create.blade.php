@@ -30,7 +30,7 @@
                         <label for="price" class="block text-sm font-medium text-heading dark:text-white mb-1">Price <span
                                 class="text-red-500">*</span></label>
                         <div class="relative">
-                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-body">$</span>
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-body  dark:text-white">$</span>
                             <input type="number" name="price" id="price" value="{{ old('price') }}" step="0.01" min="0"
                                 required
                                 class="w-full pl-7 pr-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent @error('price') border-red-500 @enderror">
@@ -61,7 +61,7 @@
                             Limit</label>
                         <input type="number" name="user_limit" id="user_limit" value="{{ old('user_limit') }}" min="0"
                             class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                        <p class="mt-1 text-xs text-body">Leave empty for unlimited</p>
+                        <p class="mt-1 text-xs text-body dark:text-white">Leave empty for unlimited</p>
                     </div>
                     <div>
                         <label for="campaign_limit"
@@ -69,7 +69,7 @@
                         <input type="number" name="campaign_limit" id="campaign_limit" value="{{ old('campaign_limit') }}"
                             min="0"
                             class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                        <p class="mt-1 text-xs text-body">Leave empty for unlimited</p>
+                        <p class="mt-1 text-xs text-body dark:text-white">Leave empty for unlimited</p>
                     </div>
                     <div>
                         <label for="storage_limit"
@@ -77,7 +77,7 @@
                         <input type="number" name="storage_limit" id="storage_limit" value="{{ old('storage_limit') }}"
                             min="0"
                             class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
-                        <p class="mt-1 text-xs text-body">Leave empty for unlimited</p>
+                        <p class="mt-1 text-xs text-body dark:text-white">Leave empty for unlimited</p>
                     </div>
                 </div>
 
@@ -167,13 +167,13 @@
                 const newItem = document.createElement('div');
                 newItem.className = 'flex items-center gap-2 feature-item';
                 newItem.innerHTML = `
-                    <input type="text" name="features[]" class="flex-1 px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Enter feature">
-                    <button type="button" class="remove-feature text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                        </svg>
-                    </button>
-                `;
+                                                            <input type="text" name="features[]" class="flex-1 px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent" placeholder="Enter feature">
+                                                            <button type="button" class="remove-feature text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">
+                                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                                </svg>
+                                                            </button>
+                                                        `;
                 container.appendChild(newItem);
                 attachRemoveEvent(newItem.querySelector('.remove-feature'));
             });
