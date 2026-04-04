@@ -58,7 +58,7 @@
                 </div>
 
                 @php
-                    $statusArr = ['pending', 'design', 'print', 'installed', 'rejected'];
+                    $statusArr = ['pending','measured','designed','printed','installed','rejected'];
                 @endphp
                 <div class="mb-4">
                     <label for="status" class="block text-sm font-medium text-heading dark:text-white mb-1">Status <span
