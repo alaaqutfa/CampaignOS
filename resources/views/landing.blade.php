@@ -38,8 +38,10 @@
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 shadow-2xl">
-                    <img src="https://placehold.co/600x400/667eea/ffffff?text=Dashboard+Preview" alt="CampaignOS Dashboard"
-                        class="rounded-lg">
+                    <img src="{{ asset('assets/img/demo-light.png') }}" class="w-full rounded-lg dark:hidden"
+                        alt="Dashboard Preview">
+                    <img src="{{ asset('assets/img/demo-dark.png') }}" class="w-full rounded-lg hidden dark:block"
+                        alt="Dashboard Preview">
                 </div>
             </div>
         </div>
@@ -300,8 +302,8 @@
             <p class="mt-4 text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">See campaign health, team
                 performance, and key metrics at a glance.</p>
             <div class="mt-12 bg-white rounded-xl shadow-xl overflow-hidden">
-                <img src="https://placehold.co/1200x600/667eea/ffffff?text=CampaignOS+Dashboard+Preview"
-                    alt="Dashboard Preview" class="w-full">
+                <img src="{{ asset('assets/img/demo-light.png') }}" class="w-full dark:hidden" alt="Dashboard Preview">
+                <img src="{{ asset('assets/img/demo-dark.png') }}" class="w-full hidden dark:block" alt="Dashboard Preview">
             </div>
         </div>
     </section>
@@ -418,8 +420,8 @@
                         </div>
                         <a href="{{ $plan->price == 0 ? route('pages.contact') : '#' }}"
                             class="mt-6 inline-block w-full px-5 py-3 text-sm font-medium
-                                            {{ $plan->is_popular ? 'bg-gradient text-white' : 'border-2 text-blue-500' }}
-                                            border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 rounded-lg transition-all ease-linear">
+                                                                    {{ $plan->is_popular ? 'bg-gradient text-white' : 'border-2 text-blue-500' }}
+                                                                    border-blue-500 hover:bg-blue-500 hover:text-white hover:scale-105 rounded-lg transition-all ease-linear">
                             {{ $plan->price == 0 ? 'Contact Us' : 'Get Started' }}
                         </a>
                     </div>

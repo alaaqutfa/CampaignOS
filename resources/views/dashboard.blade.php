@@ -11,7 +11,7 @@
             <p class="text-neutral-500 dark:text-gray-400 mt-1">Here's what's happening with your campaigns today.</p>
         </div>
         {{-- بطاقات الإحصائيات --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <div class="flex items-center">
                     <div class="p-3 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300">
