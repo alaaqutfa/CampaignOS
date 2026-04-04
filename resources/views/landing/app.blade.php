@@ -5,13 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampaignOS - @yield('title')</title>
+    <meta name="title" content="@yield('meta_title', 'CampaignOS - The Operating System for Advertising Campaigns')">
+    <meta name="description"
+        content="@yield('meta_description', 'Manage your advertising campaigns end-to-end: from measurement to installation, track progress and share results with clients.')">
+    <meta name="keywords" content="campaign management, advertising, OOH, measurements, installation, CampaignOS">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('og_title', config('app.name'))">
+    <meta property="og:description"
+        content="@yield('og_description', 'Manage advertising campaigns from measurement to installation.')">
+    <meta property="og:image" content="{{ asset('assets/img/logo.png') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="@yield('twitter_title', config('app.name'))">
+    <meta property="twitter:description"
+        content="@yield('twitter_description', 'Manage advertising campaigns from measurement to installation.')">
+    <meta property="twitter:image" content="{{ asset('assets/img/logo.png') }}">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="{{ asset('../node_modules/flowbite/dist/flowbite.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.css') }}">
     <style>
         * {
             font-family: 'Plus Jakarta Sans'
@@ -51,7 +71,7 @@
         </svg>
     </button>
 
-    <script src="{{ asset('../node_modules/flowbite/dist/flowbite.js') }}"></script>
+    <script src="{{ asset('assets/js/flowbite.js') }}"></script>
     @stack('scripts')
 </body>
 
