@@ -104,6 +104,7 @@ class CampaignItemController extends Controller
 
         $validated = $request->validate([
             'shop_id'               => 'required|exists:shops,id',
+            'status'                => 'required|in:pending,measured,designed,printed,installed,rejected',
             'material'              => 'required|string|max:255',
             'quantity'              => 'required|integer|min:1',
             'width'                 => 'required|numeric|min:0.01',
@@ -119,6 +120,7 @@ class CampaignItemController extends Controller
 
         $item->update([
             'shop_id'               => $validated['shop_id'],
+            'status'               => $validated['status'],
             'material'              => $validated['material'],
             'quantity'              => $validated['quantity'],
             'width'                 => $validated['width'],
