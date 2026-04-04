@@ -32,9 +32,9 @@
                 <table class="min-w-full divide-y divide-default">
                     <thead class="bg-neutral-50 dark:bg-neutral-800">
                         <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-body uppercase tracking-wider">Name</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-body uppercase tracking-wider">City</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-body uppercase tracking-wider">Address
+                            <th class="px-6 py-3 text-left text-xs font-medium text-body dark:text-white uppercase tracking-wider">Name</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-body dark:text-white uppercase tracking-wider">City</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-body dark:text-white uppercase tracking-wider">Address
                             </th>
                             <th class="px-6 py-3 text-right text-xs font-medium text-body uppercase tracking-wider">Actions
                             </th>

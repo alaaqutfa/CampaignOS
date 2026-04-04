@@ -15,7 +15,7 @@
         rel="stylesheet">
     <!-- Vite (Tailwind + JS) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="{{ asset('./node_modules/flowbite/dist/flowbite.css') }}">
+    <link rel="stylesheet" href="{{ asset('../node_modules/flowbite/dist/flowbite.css') }}">
     @stack('styles')
 </head>
 
@@ -49,7 +49,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('./node_modules/flowbite/dist/flowbite.js') }}"></script>
+    <script src="{{ asset('../node_modules/flowbite/dist/flowbite.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

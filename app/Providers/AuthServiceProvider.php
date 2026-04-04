@@ -4,6 +4,7 @@ namespace App\Providers;
 use App\Models\Campaign;
 use App\Models\CampaignItem;
 use App\Models\City;
+use App\Models\Client;
 use App\Models\DesignJob;
 use App\Models\Issue;
 use App\Models\MeasurementAsset;
@@ -14,6 +15,7 @@ use App\Models\Workflow;
 use App\Policies\CampaignItemPolicy;
 use App\Policies\CampaignPolicy;
 use App\Policies\CityPolicy;
+use App\Policies\ClientPolicy;
 use App\Policies\DesignJobPolicy;
 use App\Policies\IssuePolicy;
 use App\Policies\MeasurementAssetPolicy;
@@ -39,6 +41,7 @@ class AuthServiceProvider extends ServiceProvider
         Subscription::class     => SubscriptionPolicy::class,
         City::class             => CityPolicy::class,
         Shop::class             => ShopPolicy::class,
+        Client::class           => ClientPolicy::class,
     ];
 
     public function boot(): void

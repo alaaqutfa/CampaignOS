@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $companies = Company::latest()->paginate(15);
+        $companies = Company::latest()->paginate(20);
         return view('super-admin.companies.index', compact('companies'));
     }
 

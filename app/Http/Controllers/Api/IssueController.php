@@ -19,7 +19,7 @@ class IssueController extends Controller
         })
             ->with(['campaign', 'reporter'])
             ->latest()
-            ->paginate(15);
+            ->paginate(20);
 
         return IssueResource::collection($issues);
     }

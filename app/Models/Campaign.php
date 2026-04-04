@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,8 +13,8 @@ class Campaign extends Model
 
     protected $fillable = [
         'company_id',
+        'client_id',
         'title',
-        'client_name',
         'location',
         'status',
         'priority',
@@ -58,11 +57,15 @@ class Campaign extends Model
         return $this->hasMany(Issue::class);
     }
 
-    // العلاقة مع المقاولين المعينين (اختياري)
     public function assignedUsers(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'campaign_assignments')
             ->withPivot('role')
             ->withTimestamps();
+    }
+
+    public function client(): BelongsTo
+    {
+        return $this->belongsTo(Client::class);
     }
 }

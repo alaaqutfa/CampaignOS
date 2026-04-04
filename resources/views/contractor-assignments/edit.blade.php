@@ -3,8 +3,8 @@
 @section('title', 'Assign Regions to ' . $contractor->name)
 
 @section('content')
-<div class="container mx-auto px-4 py-8 max-w-2xl">
-    <h1 class="text-2xl font-bold mb-6">Assign Regions to {{ $contractor->name }}</h1>
+<div class="container mx-auto px-4 py-8 max-w-2xl ">
+    <h1 class="text-2xl font-bold mb-6 dark:text-white">Assign Regions to {{ $contractor->name }}</h1>
     <form action="{{ route('contractor-assignments.update', $contractor) }}" method="POST">
         @csrf
         @method('PUT')
@@ -21,9 +21,9 @@
                                 <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">{{ $region->city->name }} - {{ $region->name }}</span>
                             </label>
                             <select name="assignment_types[{{ $region->id }}]" class="ml-4 text-sm border-gray-300 rounded-md">
+                                <option value="both" {{ ($assignmentTypes[$region->id] ?? '') == 'both' ? 'selected' : '' }}>Both</option>
                                 <option value="measure" {{ ($assignmentTypes[$region->id] ?? '') == 'measure' ? 'selected' : '' }}>Measure</option>
                                 <option value="install" {{ ($assignmentTypes[$region->id] ?? '') == 'install' ? 'selected' : '' }}>Install</option>
-                                <option value="both" {{ ($assignmentTypes[$region->id] ?? '') == 'both' ? 'selected' : '' }}>Both</option>
                             </select>
                         </div>
                     @endforeach

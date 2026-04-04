@@ -84,6 +84,20 @@
                         <span class="ms-3">Dashboard</span>
                     </a>
                 </li>
+                {{-- @can('view clients') --}}
+                    <li>
+                        <a href="{{ route('clients.index') }}"
+                            class="flex items-center p-2 text-neutral-900 dark:text-white rounded-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 group {{ request()->routeIs('clients.*') ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' : '' }}">
+                            <svg class="w-5 h-5 text-neutral-500 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
+                                <path
+                                    d="M10 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 6c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                            </svg>
+                            <span class="ms-3">Clients</span>
+                        </a>
+                    </li>
+                {{-- @endcan --}}
                 @can('view campaigns')
                     <li>
                         <a href="{{ route('campaigns.index') }}"

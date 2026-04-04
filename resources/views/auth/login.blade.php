@@ -77,4 +77,18 @@
             </div>
         </form>
     </div>
+
+    @push('scripts')
+        <script>
+            @php $demoParam = request('demo'); @endphp
+            @if($demoParam && $demoParam == '1')
+                // Auto-fill demo credentials
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.getElementById('email').value = 'demo@alaaqutfa.tech';
+                    document.getElementById('password').value = '123123123';
+                    document.querySelector('form').submit();
+                });
+            @endif
+        </script>
+    @endpush
 @endsection

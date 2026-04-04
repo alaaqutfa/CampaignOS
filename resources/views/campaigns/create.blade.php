@@ -24,12 +24,23 @@
                     @enderror
                 </div>
 
-                <!-- Client Name -->
+                <!-- Client -->
                 <div class="mb-4">
-                    <label for="client_name" class="block text-sm font-medium text-heading dark:text-white mb-1">Client
-                        Name</label>
-                    <input type="text" name="client_name" id="client_name" value="{{ old('client_name') }}"
+                    <label for="client_id" class="block text-sm font-medium text-heading dark:text-white mb-1">
+                        Client
+                    </label>
+                    <select name="client_id" id="client_id"
                         class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <option value="">Select Client</option>
+                        @foreach($clients as $client)
+                            <option value="{{ $client->id }}" {{ old('client_id', $campaign->client_id ?? '') == $client->id ? 'selected' : '' }}>
+                                {{ $client->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('client_id')
+                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Location -->
@@ -38,6 +49,9 @@
                         class="block text-sm font-medium text-heading dark:text-white mb-1">Location</label>
                     <input type="text" name="location" id="location" value="{{ old('location') }}"
                         class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    @error('location')
+                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Status -->
@@ -50,6 +64,9 @@
                         <option value="completed" {{ old('status') == 'completed' ? 'selected' : '' }}>Completed</option>
                         <option value="archived" {{ old('status') == 'archived' ? 'selected' : '' }}>Archived</option>
                     </select>
+                    @error('status')
+                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Priority -->
@@ -62,6 +79,9 @@
                         <option value="medium" {{ old('priority') == 'medium' ? 'selected' : '' }}>Medium</option>
                         <option value="high" {{ old('priority') == 'high' ? 'selected' : '' }}>High</option>
                     </select>
+                    @error('priority')
+                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Due Date -->
@@ -70,6 +90,9 @@
                         Date</label>
                     <input type="date" name="due_date" id="due_date" value="{{ old('due_date') }}"
                         class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    @error('due_date')
+                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Actions -->
@@ -79,7 +102,7 @@
                         Cancel
                     </a>
                     <button type="submit"
-                        class="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-base hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
+                        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-base hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
                         Create Campaign
                     </button>
                 </div>

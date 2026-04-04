@@ -24,7 +24,7 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </a>
-                    <a href="#"
+                    <a href="{{ route('login', ['demo' => true]) }}"
                         class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         Watch Demo
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"

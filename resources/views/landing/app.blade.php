@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="{{ asset('./node_modules/flowbite/dist/flowbite.css') }}">
+    <link rel="stylesheet" href="{{ asset('../node_modules/flowbite/dist/flowbite.css') }}">
     <style>
         * {
             font-family: 'Plus Jakarta Sans'
@@ -32,6 +32,7 @@
             background: linear-gradient(135deg, #5B3DF5, #3B82F6, #4DC0DE);
         }
     </style>
+    @stack('styles')
 </head>
 
 <body class="bg-white dark:bg-gray-800">
@@ -50,7 +51,8 @@
         </svg>
     </button>
 
-    <script src="{{ asset('./node_modules/flowbite/dist/flowbite.js') }}"></script>
+    <script src="{{ asset('../node_modules/flowbite/dist/flowbite.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

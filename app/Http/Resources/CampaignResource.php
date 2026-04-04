@@ -12,7 +12,7 @@ class CampaignResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'client_name' => $this->client_name,
+            'client_id' => $this->client_id,
             'location' => $this->location,
             'status' => $this->status,
             'priority' => $this->priority,

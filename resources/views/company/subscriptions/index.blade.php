@@ -32,7 +32,7 @@
                             Date</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase">End
                             Date</th>
-                        <th class="px-6 py-3 text-right">Actions</th>
+                        <th class="px-6 py-3 text-right dark:text-gray-200">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

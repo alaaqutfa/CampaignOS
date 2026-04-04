@@ -25,13 +25,20 @@
                     @enderror
                 </div>
 
-                <!-- Client Name -->
+                <!-- Client -->
                 <div class="mb-4">
-                    <label for="client_name" class="block text-sm font-medium text-heading dark:text-white mb-1">Client
-                        Name</label>
-                    <input type="text" name="client_name" id="client_name"
-                        value="{{ old('client_name', $campaign->client_name) }}"
+                    <label for="client_id" class="block text-sm font-medium text-heading dark:text-white mb-1">
+                        Client
+                    </label>
+                    <select name="client_id" id="client_id"
                         class="w-full px-3 py-2 border border-default rounded-base bg-light dark:bg-dark text-heading dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    <option value="">Select Client</option>
+                    @foreach($clients as $client)
+                        <option value="{{ $client->id }}" {{ old('client_id', $campaign->client_id ?? '') == $client->id ? 'selected' : '' }}>
+                            {{ $client->name }}
+                        </option>
+                    @endforeach
+                    </select>
                 </div>
 
                 <!-- Location -->
@@ -88,7 +95,7 @@
                         Cancel
                     </a>
                     <button type="submit"
-                        class="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-base hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
+                        class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-base hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary-500 transition">
                         Update Campaign
                     </button>
                 </div>

@@ -10,7 +10,7 @@ class NotificationController extends Controller
 {
     public function index(Request $request)
     {
-        $notifications = $request->user()->notifications()->paginate(15);
+        $notifications = $request->user()->notifications()->paginate(20);
         return response()->json($notifications);
     }
 

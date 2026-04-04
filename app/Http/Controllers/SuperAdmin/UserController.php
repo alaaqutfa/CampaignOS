@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::where('is_super_admin', false)->latest()->paginate(15);
+        $users = User::where('is_super_admin', false)->latest()->paginate(20);
         return view('super-admin.users.index', compact('users'));
     }
 
